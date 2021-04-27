@@ -2,10 +2,10 @@
 
 context('Actions', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy
+    .intercept('http://localhost:3001/api/v1/orders', { fixture: 'orders'})
+    .visit('http://localhost:3000')
   })
-
-  // https://on.cypress.io/interacting-with-elements
 
   it('Have a header and display an order on the page' , () => {
     cy
@@ -20,7 +20,6 @@ context('Actions', () => {
     .should('contain','carnitas')
     .should('contain', 'queso fresco')
     .should('contain', 'jalapeno')
-    
   })
   
 })
