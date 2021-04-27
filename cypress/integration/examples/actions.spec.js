@@ -11,7 +11,16 @@ context('Actions', () => {
     cy
     .get('h1').should('exist')
     .should('contain', 'Burrito Builder')
+    .get('.order').first().should('exist')
+    .get('h3').should('exist')
+    .should('contain', 'Pat')
+    .get('ul')
+    .should('contain','beans')
+    .should('contain','lettuce')
+    .should('contain','carnitas')
+    .should('contain', 'queso fresco')
+    .should('contain', 'jalapeno')
+    
   })
-
   
 })
