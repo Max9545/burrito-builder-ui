@@ -8,6 +8,18 @@ context('Actions', () => {
       statusCode: 200,
       body: {id: 2, name: "Max B", ingredients: ["beans"]}
     })
+    .intercept('DELETE','http://localhost:3001/api/v1/orders/1', {orders:[
+      {
+        id: 2,
+        name: 'Sam',
+        ingredients: ['steak', 'pico de gallo', 'lettuce', 'carnitas', 'queso fresco', 'jalapeno']
+      },
+      {
+        id: 3,
+        name: 'Alex',
+        ingredients: ['sofritas', 'beans', 'sour cream', 'carnitas', 'queso fresco']
+      }
+    ]})
     .visit('http://localhost:3000')
   })
 
@@ -61,6 +73,12 @@ context('Actions', () => {
     .get('.order').last().should('exist')
     .should('contain', 'Max B')
     .should('contain', 'beans')
+  })
+
+  it.only('Should have the ability to delete a card' , () => {
+    cy
+    .get('.delete-me').first().click()
+    // .get('.order').first()
   })
   
 })

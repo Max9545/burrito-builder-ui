@@ -12,7 +12,7 @@ const Orders = props => {
             return <li>{ingredient}</li>
           })}
         </ul>
-        <button onClick={() => props.removeOrder(order.id)}>Delete Me</button>
+        <button className='delete-me'onClick={() => props.removeOrder(order.id)}>Delete Me</button>
       </div>
     )
   });
