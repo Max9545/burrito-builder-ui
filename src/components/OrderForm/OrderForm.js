@@ -14,8 +14,11 @@ class OrderForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    postOrder(this.state.name, this.state.ingredients)
-    this.clearInputs();
+    if(this.state.name !== '' && this.state.ingredients.length) {
+      postOrder(this.state.name, this.state.ingredients)
+      .then(data => this.props.addNewOrder(data))
+      this.clearInputs();
+    }
   }
 
   clearInputs = () => {
