@@ -32,10 +32,33 @@ class OrderForm extends Component {
   handleIngredientChange = (e, newIngredient) => {
     e.preventDefault();
 
-    if(!this.state.ingredients.includes(newIngredient)) {
-      this.setState({ ingredients: [...this.state.ingredients, newIngredient]})
-    }
+
+    this.setState({ ingredients: [...this.state.ingredients, newIngredient]})
+
+
+   
+    // this.state.ingredients.forEach(ingredient => {
+    //   const count = 0
+    //   if(ingredient === newIngredient) {
+    //     count + 1
+    //     console.log(count)
+    //     return count 
+
+
+    //   }
+  
+    // })
+
+    // if(this.state.ingredients.length) {
+    //   this.state.ingredients.reduce((acc, ingredient) => {
+    //     console.log(acc)
+    //     return ingredient === newIngredient ? acc + 1 : acc
+        
+    //   },0)
+    // }
     
+    
+  
   }
 
   render() {
