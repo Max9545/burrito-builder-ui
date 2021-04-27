@@ -4,7 +4,7 @@ context('Actions', () => {
   beforeEach(() => {
     cy
     .intercept('GET','http://localhost:3001/api/v1/orders', { fixture: 'orders'})
-    .intercept('POST','http://localhost:3001/api/v1/order', {
+    .intercept('POST','http://localhost:3001/api/v1/orders', {
       statusCode: 200,
       body: {id: 2, name: "Max B", ingredients: ["beans"]}
     })
@@ -26,7 +26,7 @@ context('Actions', () => {
     .should('contain', 'jalapeno')
   })
 
-  it('Should have a form that can have a name input and ingredients selection that appears on page when the recipe is succefully subbmited to the server' , () => {
+  it('Should have a form that has name input and ingredients selection that makes new recipe card appear on page when the recipe is succefully subbmited to the server' , () => {
     cy
     .get('form').should('exist')
     .get('input[name=name]').should('exist')
@@ -40,7 +40,6 @@ context('Actions', () => {
     .get('.order').last().should('exist')
     .should('contain', 'Max B')
     .should('contain', 'beans')
-
   })
   
 })
