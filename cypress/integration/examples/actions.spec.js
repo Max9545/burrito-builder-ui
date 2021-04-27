@@ -26,16 +26,21 @@ context('Actions', () => {
     .should('contain', 'jalapeno')
   })
 
-  it('Should have a form that has name input and ingredients selection that makes new recipe card appear on page when the recipe is succefully subbmited to the server' , () => {
+  it('Should have a form that has a name input and ingredients selection that lists current ingredients to be added and then makes new recipe card appear on page when the recipe is succefully subbmited to the server.' , () => {
     cy
     .get('form').should('exist')
     .get('input[name=name]').should('exist')
     .should('have.attr', 'placeholder', 'Name')
     .type('Max B')
     .get('input[name=name]').should('have.attr', 'value', 'Max B')
+    .get('p').should('exist')
+    .should('contain', 'Order: Nothing selected')
     .get('button').first().should('exist')
     .click()
+    .get('p').should('exist')
+    .should('contain', 'beans')
     .get('.submit-button').should('exist')
+    .should('contain', 'Submit Order')
     .click()
     .get('.order').last().should('exist')
     .should('contain', 'Max B')
