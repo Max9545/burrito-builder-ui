@@ -37,7 +37,9 @@ context('Actions', () => {
     .click()
     .get('.submit-button').should('exist')
     .click()
-
+    .get('.order').last().should('exist')
+    .should('contain', 'Max B')
+    .should('contain', 'beans')
 
   })
   
