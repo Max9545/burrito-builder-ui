@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Orders.css';
 
 const Orders = props => {
@@ -11,6 +12,7 @@ const Orders = props => {
             return <li>{ingredient}</li>
           })}
         </ul>
+        <button onClick={() => props.removeOrder(order.id)}>Delete Me</button>
       </div>
     )
   });
