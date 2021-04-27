@@ -26,6 +26,22 @@ context('Actions', () => {
     .should('contain', 'jalapeno')
   })
 
+  it('Have a form with all the correct buttons to choose from' , () => {
+    cy
+    .get('button').should('contain', 'beans')
+    .get('button').should('contain', 'steak')
+    .get('button').should('contain', 'carnitas')
+    .get('button').should('contain', 'sofritas')
+    .get('button').should('contain', 'lettuce')
+    .get('button').should('contain', 'queso fresco')
+    .get('button').should('contain', 'pico de gallo')
+    .get('button').should('contain', 'hot sauce')
+    .get('button').should('contain', 'guacamole')
+    .get('button').should('contain', 'jalapenos')
+    .get('button').should('contain', 'cilantro')
+    .get('button').should('contain', 'sour cream')
+  })
+
   it('Should have a form that has a name input and ingredients selection that lists current ingredients to be added and then makes new recipe card appear on page when the recipe is succefully subbmited to the server.' , () => {
     cy
     .get('form').should('exist')
